@@ -1,36 +1,161 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# QuickTalk
 
-## Getting Started
+A real-time chat application built with modern full-stack technologies for seamless one-to-one communication. Designed with performance, responsiveness, and scalability in mind, **QuickTalk** offers a lightweight, intuitive, and real-time messaging experience. Deployed on Vercel with Firebase integration and media handling via Cloudinary.
 
-First, run the development server:
+---
+
+**COMPANY**: CODTECH IT SOLUTIONS
+**NAME**: YASHPRATAP SHAH
+**INTERN ID**: CT04DA274
+**DOMAIN**: FULL STACK WEB DEVELOPMENT
+**DURATION**: 4 WEEKS
+**MENTOR**: NEELA SANTHOSH
+
+---
+
+## 🔗 Live Demo
+
+[https://quicktalk-blue.vercel.app/](https://quicktalk-blue.vercel.app/)
+
+---
+
+## 🚀 Tech Stack
+
+* **[Next.js](https://nextjs.org/)** – Full-stack React framework for building both frontend and backend logic.
+* **[TailwindCSS](https://tailwindcss.com/)** – Utility-first CSS framework for rapid custom styling.
+* **[Lucide-React](https://lucide.dev/)** – Icon system for consistent and modern SVG icons.
+* **[React-Hot-Toast](https://react-hot-toast.com/)** – Toast notifications for real-time feedback.
+* **[Bolt.new](https://bolt.new/)** – UI design tool for generating fast, clean, developer-friendly components.
+* **[Firebase](https://firebase.google.com/)** – Backend-as-a-Service for authentication and real-time data storage.
+* **[Cloudinary](https://cloudinary.com/)** – Media storage and delivery for profile images and media attachments.
+* **[Socket.IO](https://socket.io/)** – Enables real-time, bidirectional communication for quick message transfer.
+* **[GitHub](https://github.com/yashpratapshah16/quicktalk)** – Source code and version control.
+
+---
+
+## 💡 Features
+
+* 🔒 Firebase Authentication with Google sign-in.
+* 📩 One-to-one real-time messaging.
+* ⚡ Socket.IO for low-latency, real-time message transfer.
+* 📷 Cloudinary-powered image upload and preview.
+* 🔔 Toast notifications for events (e.g., login success, errors).
+* 📱 Fully responsive UI optimized for all screen sizes.
+* 🎨 Custom UI components designed via Bolt.new.
+* 🧠 Code enhancements powered with ChatGPT for better architecture.
+
+---
+
+## 🛠️ Usage
 
 ```bash
+# Clone the repository
+git clone https://github.com/yashpratapshah16/quicktalk.git
+
+# Navigate to the project directory
+cd quicktalk
+
+# Install dependencies
+npm install
+
+# Create environment variables
+cp .env.example .env.local
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Visit
+http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔐 Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+You must create a `.env.local` file to store sensitive keys:
 
-## Learn More
+```env
+NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET=your_upload_preset
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧠 Applicability
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+QuickTalk serves as an excellent learning project and starting point for:
 
-## Deploy on Vercel
+* Real-time chat applications with Firebase and Socket.IO backend.
+* Media handling using Cloudinary.
+* Combining authentication and database features in a full-stack app.
+* Designing modern UI with TailwindCSS + Bolt.new.
+* Implementing state handling and event-based logic using modern React tools.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🙌 Credits
+
+* **Bolt.new** – UI generation.
+* **Lucide-React** – Icon system.
+* **ChatGPT** – Assisted with code logic refinement and structure.
+* **GitHub** – Hosting and version control.
+* **Firebase + Cloudinary** – Core backend and media support.
+* **Socket.IO** – Real-time event communication.
+
+---
+
+## 📂 Project Structure
+
+```
+/components       -> Shared React components
+/pages            -> Next.js pages (routes)
+/styles           -> Tailwind and global styles
+/utils            -> Firebase config and helper logic
+/public           -> Static assets
+/lib              -> Upload & media handling functions
+```
+
+---
+
+## 📝 License
+
+### MIT License
+
+```
+MIT License
+
+Copyright (c) 2025 YASHPRATAP SHAH
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+```
+
+---
+
+# OUTPUT
+
+![Image](https://github.com/user-attachments/assets/66b9752f-39cb-413f-8219-1bffc8632c17)
+
+
+![Image](https://github.com/user-attachments/assets/6a8ea27d-a8dc-4cb6-80c0-a2a1bb4fe5be)
