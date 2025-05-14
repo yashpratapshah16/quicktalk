@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import {
-    IconBrandGoogle,
     IconMessage,
 } from "@tabler/icons-react";
 import { Label } from "@/components/ui/label";
@@ -104,22 +103,6 @@ export default function Signin() {
                                 Signup ?
                             </p>
                         </Link>
-                    </div>
-
-                    <div className="my-8 h-[1px] w-full bg-gradient-to-r from-transparent  to-transparent via-neutral-700" />
-
-                    <div className="flex flex-col space-y-4">
-                        <button
-                            disabled={onSubmit}
-                            className="group/btn  relative flex h-10 w-full items-center justify-start space-x-2 rounded-md  px-4 font-medium text-black bg-zinc-900 shadow-[0px_0px_1px_1px_#262626]"
-                            type="submit"
-                        >
-                            <IconBrandGoogle className="h-4 w-4 text-neutral-300" />
-                            <span className="text-sm text-neutral-300">
-                                Google
-                            </span>
-                            <BottomGradient />
-                        </button>
                     </div>
                 </form>
             </div>

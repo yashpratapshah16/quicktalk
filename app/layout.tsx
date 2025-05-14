@@ -4,6 +4,10 @@ import "./globals.css";
 import { FirebaseProvider } from "@/context/firebaseContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { Toaster } from "react-hot-toast";
+import { LogoutDialogProvider } from "@/context/LogoutContext";
+import LogoutDialog from "@/components/LogoutDialog";
+import { ProfileDialogProvider } from "@/context/ProfileContext";
+import ProfileDailog from "@/components/ProfileDailog";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,10 +34,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-[100vh] `}
       >
-        <Toaster/>
+        <Toaster />
         <FirebaseProvider>
           <AuthProvider>
-            {children}
+            <LogoutDialogProvider>
+              <LogoutDialog />
+              <ProfileDialogProvider>
+                <ProfileDailog />
+                {children}
+              </ProfileDialogProvider>
+            </LogoutDialogProvider>
           </AuthProvider>
         </FirebaseProvider>
       </body>

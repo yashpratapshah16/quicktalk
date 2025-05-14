@@ -1,27 +1,86 @@
 "use client"
 
-import React, { useState } from 'react'
-import { Sidebar, SidebarBody } from './ui/sidebar'
+import React, { useEffect, useState } from 'react'
+import { Sidebar, SidebarBody, SidebarLink } from './ui/sidebar'
 import { motion } from "motion/react";
-import { IconMessage } from '@tabler/icons-react';
+import { IconArrowLeft, IconMessage, IconSearch } from '@tabler/icons-react';
 import Link from 'next/link';
-import LogoutDailog from './LogoutDailog';
+import UsersCard from './UsersCard';
+import { ChatUser } from '@/lib/userlist';
+import { useLogoutDialog } from '@/context/LogoutContext';
+import { ScrollArea } from './ui/scroll-area';
+import { useProfileDialog } from '@/context/ProfileContext';
+import { useAuth } from '@/context/AuthContext';
+import { Avatar, AvatarImage } from '@radix-ui/react-avatar';
+
+type AppSidebarProps = {
+    onSelectUser: (user: ChatUser | null) => void;
+};
 
 
-const AppSidebar = () => {
+const AppSidebar: React.FC<AppSidebarProps> = ({ onSelectUser }) => {
 
     const [open, setOpen] = useState(false);
+    const { setOpenDialog } = useLogoutDialog();
+    const { setOpenProfile } = useProfileDialog();
+    const [search, setSearch] = useState("")
+    const [debouncedSearch, setDebouncedSearch] = useState("");
+
+    useEffect(() => {
+        const handler = setTimeout(() => {
+            setDebouncedSearch(search);
+        }, 300);
+
+        return () => {
+            clearTimeout(handler);
+        };
+    }, [search]);
+
+    const { userData, loading } = useAuth();
 
     return (
         <Sidebar open={open} setOpen={setOpen}>
-            <SidebarBody className="justify-between gap-10">
-                <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
+            <SidebarBody>
+                <div className="flex flex-col gap-y-2 ">
                     {open ? <Logo /> : <LogoIcon />}
+                    <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent " />
                 </div>
-                <div>
-                    <div className="mt-8 flex flex-col gap-2">
-                        <LogoutDailog/>
+                <div className='h-[80%] mt-5 flex flex-col'>
+                    <div className={`${open ? "px-2" : "justify-center"} h-10 flex items-center  bg-neutral-400 gap-x-2 rounded-full transition-all border-2 focus-within:border-black`}>
+                        <IconSearch />
+                        {open && <input onChange={(e) => setSearch(e.target.value)} value={search} type="text" placeholder='Search Chats' className='border-none focus-visible:outline-none ' />}
                     </div>
+                    <ScrollArea className='w-full h-[80%] my-auto'>
+                        <div >
+                            <UsersCard search={debouncedSearch} onSelectUser={onSelectUser} />
+                        </div>
+                    </ScrollArea>
+                </div>
+                <div className='mt-auto gap-y-2 flex flex-col'>
+                    <div className=" h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent " />
+                    <SidebarLink sidebarlink={
+                        {
+                            label: "Profile",
+                            icon: 
+                            <Avatar className="h-7 w-7 shrink-0">
+                                <AvatarImage className=' rounded-2xl' src={`${!loading && userData && userData.profilePicture || "/profile.jpg"}`} />
+                            </Avatar>,
+                            callback: () => {
+                                setOpen(false)
+                                setOpenProfile(true)
+                            }
+                        }
+                    } />
+                    <SidebarLink sidebarlink={
+                        {
+                            label: "Logout",
+                            icon: <IconArrowLeft className="h-7 w-7 shrink-0 text-neutral-200" />,
+                            callback: () => {
+                                setOpen(false)
+                                setOpenDialog(true)
+                            }
+                        }
+                    } />
                 </div>
             </SidebarBody>
         </Sidebar>
