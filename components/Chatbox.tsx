@@ -9,6 +9,7 @@ import { Button } from "./ui/button"
 import { CheckCheckIcon, CheckIcon, Send } from "lucide-react"
 import { useAuth } from "@/context/AuthContext"
 import { getRoomId } from "@/app/page"
+import { useRef } from "react";
 
 interface ChatboxProps {
     currentUser: User,
@@ -36,6 +37,9 @@ const Chatbox: React.FC<ChatboxProps> = ({ currentUser, selectedUser }) => {
 
     const [allMessages, setAllMessages] = useState<ChatMessage[]>([])
 
+    const bottomRef = useRef<HTMLDivElement>(null);
+
+
     useEffect(() => {
         const res = Array.from(sortMessages)
         setAllMessages(res.sort((a, b) => a.timestamp - b.timestamp))
@@ -55,6 +59,9 @@ const Chatbox: React.FC<ChatboxProps> = ({ currentUser, selectedUser }) => {
         setAllMessages(finalMessage.sort((a, b) => a.timestamp - b.timestamp))
     }, [liveUser.status])
 
+    useEffect(() => {
+        bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, [allMessages]);
 
     const [newMessages, setNewMessages] = useState<ChatMessage[]>([]);
 
@@ -147,9 +154,12 @@ const Chatbox: React.FC<ChatboxProps> = ({ currentUser, selectedUser }) => {
             </div>
             <div className="h-full bg-white flex flex-col scroll-auto overflow-y-scroll custom-scrollbar">
                 {
-                    allMessages.map((msg) => {
+                    allMessages.map((msg,index) => {
+                        const isLast = index === allMessages.length - 1;
                         return (
-                            <div key={msg.id}
+                            <div
+                                key={msg.id}
+                                ref={isLast ? bottomRef : null}
                                 className={
                                     `flex flex-col w-fit p-2 m-2 rounded-lg max-w-1/2 
                                     ${msg.senderId === currentUser.uid ?
