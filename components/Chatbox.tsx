@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import { db } from "@/lib/firebase"
 import { ChatUser } from "@/lib/userlist"
@@ -8,8 +9,8 @@ import { FormEvent, useEffect, useState } from "react"
 import { Button } from "./ui/button"
 import { CheckCheckIcon, CheckIcon, Send } from "lucide-react"
 import { useAuth } from "@/context/AuthContext"
-import { getRoomId } from "@/app/page"
 import { useRef } from "react";
+
 
 interface ChatboxProps {
     currentUser: User,
@@ -27,6 +28,9 @@ export interface ChatMessage {
     timestamp: number;
     time: string;
     status: MessageStatus;
+}
+export function getRoomId(uid1: string, uid2: string) {
+  return [uid1, uid2].sort().join('_');
 }
 
 const Chatbox: React.FC<ChatboxProps> = ({ currentUser, selectedUser }) => {

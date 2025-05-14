@@ -1,7 +1,7 @@
 "use client"
 
 import AppSidebar from "@/components/AppSidebar";
-import Chatbox from "@/components/Chatbox";
+import Chatbox, { getRoomId } from "@/components/Chatbox";
 import { useAuth } from "@/context/AuthContext";
 import { ChatUser } from "@/lib/userlist";
 import { IconMessage } from "@tabler/icons-react";
@@ -11,9 +11,7 @@ import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 
 
-export function getRoomId(uid1: string, uid2: string) {
-  return [uid1, uid2].sort().join('_');
-}
+
 
 export default function Home() {
 
