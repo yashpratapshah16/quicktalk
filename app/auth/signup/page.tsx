@@ -47,17 +47,24 @@ export default function Signup() {
         e.preventDefault();
         setOnSubmit(true);
         const { Fname, Lname, email, password } = data;
+
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             await updateProfile(userCredential.user, {
                 displayName: `${Fname.trim()} ${Lname.trim()}`
             });
+
+            // Force refresh current user
+            await auth.currentUser?.reload();
+            router.push("/");
         } catch (error) {
-            toast.error("Check Email Maybe its Already in-use try Sign-In")
-            console.log(error)
+            toast.error("Check Email - Maybe already in use. Try Sign-In");
+            console.error(error);
         }
-        setOnSubmit(false)
+
+        setOnSubmit(false);
     };
+
 
     useEffect(() => {
         if (user && !loading) {

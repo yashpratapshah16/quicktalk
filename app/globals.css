@@ -234,3 +234,8 @@
 .custom-scrollbar::-webkit-scrollbar-track {
   background-color: #d1d5db; /* gray-300 */
 }
+
+input {
+  z-index: 10;
+  position: relative;
+}
