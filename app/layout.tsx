@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-[100vh] `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-[var(--app-height)] overflow-hidden `}
       >
         <Toaster />
         <FirebaseProvider>

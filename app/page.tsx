@@ -50,7 +50,7 @@ export default function Home() {
 
 
   return (
-    <div className="flex flex-col md:flex-row bg-neutral-800  h-full">
+    <div className="flex flex-col md:flex-row bg-neutral-800  h-full overflow-hidden overflow-y-auto">
       <AppSidebar onSelectUser={setSelectedUser} />
       <div className=" md:rounded-tl-4xl bg-neutral-200  w-full h-full">
         {
