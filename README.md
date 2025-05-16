@@ -113,6 +113,7 @@ QuickTalk serves as an excellent learning project and starting point for:
 * **GitHub** – Hosting and version control.
 * **Firebase + Cloudinary** – Core backend and media support.
 * **Socket.IO** – Real-time event communication.
+* **Shadcn & Aceternity UI** - For prebuild UI components
 
 ---
 
