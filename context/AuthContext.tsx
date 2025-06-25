@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           setUserData(snap.data() as ChatUser)
         }
 
-        const newSocket = io("http://localhost:3000", {
+        const newSocket = io(process.env.NEXT_PUBLIC_SOCKET_URL, {
           query: { uid: currentUser.uid },
         });
         setSocket(newSocket);
