@@ -21,7 +21,6 @@ export interface Profile {
     Fname: string | undefined
     Lname: string | undefined
     profilePic: string
-
 }
 
 const ProfileDailog = () => {
