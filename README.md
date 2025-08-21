@@ -1,29 +1,10 @@
 
-**COMPANY**: CODTECH IT SOLUTIONS
-
-**NAME**: YASHPRATAP SHAH
-
-**INTERN ID**: CT04DA274
-
-**DOMAIN**: FULL STACK WEB DEVELOPMENT
-
-**DURATION**: 4 WEEKS
-
-**MENTOR**: NEELA SANTHOSH
-
----
-
 # QuickTalk
 
 A real-time chat application built with modern full-stack technologies for seamless one-to-one communication. Designed with performance, responsiveness, and scalability in mind, **QuickTalk** offers a lightweight, intuitive, and real-time messaging experience. Deployed on Vercel with Firebase integration and media handling via Cloudinary.
 
 ---
 
-## 🔗 Live Demo
-
-[https://quicktalk-blue.vercel.app/](https://quicktalk-blue.vercel.app/)
-
----
 
 ## 🚀 Tech Stack
 
